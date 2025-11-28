@@ -1,3 +1,55 @@
+### Instalasi MongoDB
+Sama seperti sebelumnya, dikarenakan beberapa komponen di Open5GS network membutuhkan database, dalam hal ini, database yang digunakan adalah MongoDB, sehingga sebelum mulai instalasi Open5GS, kita perlu menyiapkan database MongoDB di Ubuntu terlebih dahulu. Hal tersebut bisa dilakukan melalui command berikut.
+```bash
+sudo apt-get install gnupg curl
+
+curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   --dearmor
+   
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+```
+Dapat dilihat pada output di bawah, MongoDB sudah sepenuhnya berjalan dan bisa digunakan.
+
+<img width="808" height="517" alt="image" src="https://github.com/user-attachments/assets/4163e786-ae22-49d4-955e-e483187fc78f" />
+
+Selanjutnya, diperlukan konfigurasi tambahan supaya MongoDB dapat digunakan di semua interface, sehingga dapat diakses dari dalam container atuapun pod, tidak terbatas pada localhost saja. Hal tersebut dapat dilakukan dengan melakukan modifikasi pada file /etc/mongod.conf dan mengganti bagian bindIp dengan value 0.0.0.0 seperti pada output berikut.
+
+```bash
+sudo nano /etc/mongod.conf
+```
+<img width="812" height="571" alt="image" src="https://github.com/user-attachments/assets/54ae72c9-b9da-4d6a-bbe1-6abe79fab40a" />
+
+Setelah Anda berhasil menyimpan konfigurasi menggunakan sudo, langkah selanjutnya adalah mencoba menghidupkan kembali layanan MongoDB:
+
+```bash
+sudo systemctl start mongod
+sudo systemctl status mongod
+```
+<img width="817" height="332" alt="image" src="https://github.com/user-attachments/assets/083e191c-4af5-4ce0-bc4f-f7d8b81ff5a4" />
+
+### Setup K3s Environment Dengan Calico
+Selanjutnya, kita dapat langsung setup K3s environment dengan Calico, menggunakan script yang sudah dibuat sebelumnya.
+```bash
+cd ~/Open5GS-Testbed/open5gs/open5gs-k3s-calico
+
+# Make script executable
+chmod +x setup-k3s-environment-calico.sh
+
+# Run setup
+sudo ./setup-k3s-environment-calico.sh
+```
+<img width="821" height="486" alt="image" src="https://github.com/user-attachments/assets/a5a894c3-4dfc-42f0-81ee-b2e5ef3a6eac" />
+<img width="812" height="547" alt="image" src="https://github.com/user-attachments/assets/23123578-95c9-4b12-bf92-06ec6597a6f8" />
+
+
+.........................
+<img width="819" height="485" alt="image" src="https://github.com/user-attachments/assets/6f1e4f90-a32a-473a-b252-30a1c293b3e8" />
+
+
 
 ![WhatsApp Image 2025-11-23 at 18 52 20_f4244968](https://github.com/user-attachments/assets/8128a824-924c-41d9-8c1e-42080ca49977)
 
