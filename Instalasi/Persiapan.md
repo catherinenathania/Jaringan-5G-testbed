@@ -91,6 +91,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 ```
 <img width="815" height="511" alt="image" src="https://github.com/user-attachments/assets/e6776084-553a-4aca-9e85-83880f3f4b91" />
 Dapat dilihat pada command di atas, Docker berhasil diinstall dan siap digunakan dalam testbed ini. Terakhir, perlu dilakukan tahap post installation supaya Docker dapat langsung digunakan tanpa sudo access, yaitu melalui command berikut.
+
 ```bash
 sudo groupadd docker
 sudo usermod -aG docker $USER
