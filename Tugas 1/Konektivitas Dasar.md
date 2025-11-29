@@ -122,3 +122,45 @@ kubectl get pods -n open5gs -o wide
 
 <img width="815" height="533" alt="image" src="https://github.com/user-attachments/assets/4043b8fa-2875-4b8f-908f-200b0d2d9b0f" />
 
+
+Jalankan perintah ini. Ini akan mendownload dan menjalankan MongoDB v4.4 yang kompatibel dengan CPU Anda.
+
+```bash
+sudo docker run -d --name mongo-safe \
+  --restart always \
+  --network host \
+  mongo:4.4
+```
+
+<img width="816" height="435" alt="image" src="https://github.com/user-attachments/assets/a7c1459e-91da-4701-ac52-ab7a594639da" />
+
+(Kita gunakan --network host agar dia otomatis menggunakan IP VM 10.0.2.15 dan port 27017 tanpa perlu mapping).
+
+### Verifikasi "Pintu" Terbuka
+Tunggu beberapa detik setelah download selesai, lalu cek port-nya:
+
+```bash
+sudo ss -tuln | grep 27017
+```
+
+<img width="810" height="68" alt="image" src="https://github.com/user-attachments/assets/c7ca3058-6123-47ad-9efc-5918d3aad5ca" />
+
+Target: Anda HARUS melihat LISTEN ... *:27017.
+
+### Restart Pod Open5GS
+Jika Langkah 3 berhasil (ada angkanya), berarti Database sudah hidup dan stabil! Sekarang restart Pod untuk terakhir kalinya.
+
+```bash
+kubectl delete pod udr-0 pcf-0 -n open5gs
+```
+
+<img width="816" height="94" alt="image" src="https://github.com/user-attachments/assets/b100e5f9-2ff5-4587-825c-7f51a7a0fd0e" />
+
+Tunggu sebentar:
+
+```bash
+kubectl get pods -n open5gs -o wide
+```
+
+<img width="817" height="526" alt="image" src="https://github.com/user-attachments/assets/60eb8b44-e515-4657-bd28-3248baa85bd7" />
+
