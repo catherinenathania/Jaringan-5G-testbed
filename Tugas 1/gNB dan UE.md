@@ -27,3 +27,11 @@
 
 
 <img width="901" height="885" alt="image" src="https://github.com/user-attachments/assets/d77695cd-0a34-40a3-aead-670865c709ef" />
+
+
+### Kendala
+
+![WhatsApp Image 2025-12-02 at 00 26 55_45e389ba](https://github.com/user-attachments/assets/c6f9b21a-d046-4815-9631-7d50816124ff)
+
+
+dikarenakan kendala itu semua config, instalasi semuanya menghilang. sehingga kami mengharuskan untuk mengulang kembali.
