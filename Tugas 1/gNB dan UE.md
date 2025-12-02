@@ -35,3 +35,6 @@
 
 
 dikarenakan kendala itu semua config, instalasi semuanya menghilang. sehingga kami mengharuskan untuk mengulang kembali.
+
+<img width="909" height="686" alt="image" src="https://github.com/user-attachments/assets/3c9e325d-2ca3-4899-876c-9272f2856097" />
+
