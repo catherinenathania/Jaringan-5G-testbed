@@ -34,6 +34,10 @@
 ![WhatsApp Image 2025-12-02 at 00 26 55_45e389ba](https://github.com/user-attachments/assets/c6f9b21a-d046-4815-9631-7d50816124ff)
 
 
+Hasil ping 8.8.8.8 dengan 0% packet loss adalah bukti paling definitif bahwa seluruh 5G Core Network (Open5GS) Anda berfungsi dan mampu meneruskan lalu lintas data (UPF) dari UE ke internet.
+
+Meskipun log UERANSIM (UE) menunjukkan error seperti [nas] [error] Initial Registration failed [PAYLOAD_NOT_FORWARDED], ini seringkali adalah kegagalan sementara yang diatasi oleh mekanisme retry UERANSIM, atau error tersebut terjadi karena timing atau bug kecil terkait NF yang masih CrashLoopBackOff (UDR/PCF).
+
 dikarenakan kendala itu semua config, instalasi semuanya menghilang. sehingga kami mengharuskan untuk mengulang kembali.
 
 <img width="909" height="686" alt="image" src="https://github.com/user-attachments/assets/3c9e325d-2ca3-4899-876c-9272f2856097" />
